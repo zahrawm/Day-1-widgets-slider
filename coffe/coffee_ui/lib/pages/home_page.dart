@@ -1,3 +1,4 @@
+import 'package:coffee_ui/utils/coffee_type.dart';
 import 'package:coffee_ui/utils/my_coffe.dart';
 import 'package:flutter/material.dart';
 
@@ -50,10 +51,25 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
+            Container(
+              height: 50,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CoffeeType(coffetype: 'Latte', isSelected: true),
+                  CoffeeType(coffetype: 'Cuppcino', isSelected: false)
+                ],
+              ),
+            ),
             Expanded(
                 child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [MyCoffe()],
+              children: [
+                MyCoffe(),
+                MyCoffe(),
+                MyCoffe(),
+                MyCoffe(),
+              ],
             ))
           ],
         ),
