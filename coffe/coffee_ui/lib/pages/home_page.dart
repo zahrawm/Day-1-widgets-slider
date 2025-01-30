@@ -2,9 +2,20 @@ import 'package:coffee_ui/utils/coffee_type.dart';
 import 'package:coffee_ui/utils/my_coffe.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List coffeeType = [
+    ['Cupccion', true],
+    ['Latte', true]
+  ];
+
+  void coffeeTypeSelected() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,8 +67,16 @@ class HomePage extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  CoffeeType(coffetype: 'Latte', isSelected: true),
-                  CoffeeType(coffetype: 'Cuppcino', isSelected: false)
+                  CoffeeType(
+                    coffetype: 'Latte',
+                    isSelected: true,
+                    onTap: coffeeTypeSelected,
+                  ),
+                  CoffeeType(
+                    coffetype: 'Cuppcino',
+                    isSelected: false,
+                    onTap: coffeeTypeSelected,
+                  )
                 ],
               ),
             ),

@@ -22,20 +22,30 @@ class MyCoffe extends StatelessWidget {
                   child: Image.asset(
                     'lib/images/hot.jpg',
                   )),
-              Text('Caffe'),
-              Text('Latte'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // Column // Text
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('\$3345'),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Icon(Icons.add),
+                  Text('Milk'),
+                  Text(
+                    'With Almond Milk',
+                    style: TextStyle(color: Colors.grey[400]),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('\$3345'),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(4)),
+                        child: Icon(Icons.add),
+                      )
+                    ],
                   )
                 ],
-              )
+              ),
             ],
           ),
         ),
