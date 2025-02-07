@@ -1,15 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:data_fetch_app/components/my_buuton.dart';
 import 'package:data_fetch_app/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmedpasswordController = TextEditingController();
 
-  LoginPage({
-    Key? key,
-  }) : super(key: key);
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +44,13 @@ class LoginPage extends StatelessWidget {
             ),
             MyTextField(
                 controller: passwordController,
+                hintText: 'password',
+                obscureText: true),
+            SizedBox(
+              height: 25,
+            ),
+            MyTextField(
+                controller: confirmedpasswordController,
                 hintText: 'password',
                 obscureText: true),
             SizedBox(
