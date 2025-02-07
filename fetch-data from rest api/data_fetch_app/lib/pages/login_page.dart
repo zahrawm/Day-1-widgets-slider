@@ -1,15 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:data_fetch_app/components/my_buuton.dart';
 import 'package:data_fetch_app/components/my_text_field.dart';
+import 'package:data_fetch_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
+class LoginPage extends StatefulWidget {
+  final void Function()? onTap;
   LoginPage({
     Key? key,
+    required this.onTap,
   }) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+  void login() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomePage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +42,7 @@ class LoginPage extends StatelessWidget {
               height: 25,
             ),
             Text(
-              "Food Delivery App",
+              "Register Page",
               style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).colorScheme.inversePrimary),
@@ -46,12 +59,12 @@ class LoginPage extends StatelessWidget {
             ),
             MyTextField(
                 controller: passwordController,
-                hintText: 'password',
+                hintText: ' Confirmed password',
                 obscureText: true),
             SizedBox(
               height: 25,
             ),
-            MyButon(onTap: () {}, text: 'Sign in'),
+            MyButon(onTap: login, text: 'Sign in'),
             SizedBox(
               height: 25,
             ),
@@ -65,7 +78,7 @@ class LoginPage extends StatelessWidget {
                     width: 4,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: widget.onTap,
                     child: Text(
                       'Register Now',
                       style: TextStyle(fontWeight: FontWeight.bold),

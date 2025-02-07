@@ -1,13 +1,26 @@
-import 'package:data_fetch_app/components/my_buuton.dart';
-import 'package:data_fetch_app/components/my_text_field.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmedpasswordController = TextEditingController();
+import 'package:data_fetch_app/components/my_buuton.dart';
+import 'package:data_fetch_app/components/my_text_field.dart';
 
-  RegisterPage({super.key});
+class RegisterPage extends StatefulWidget {
+  final void Function()? onTap;
+  RegisterPage({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController emailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+
+  TextEditingController confirmedpasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +83,7 @@ class RegisterPage extends StatelessWidget {
                     width: 4,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: widget.onTap,
                     child: Text(
                       'Register Now',
                       style: TextStyle(fontWeight: FontWeight.bold),
