@@ -1,5 +1,7 @@
 import 'package:data_fetch_app/components/my_drawer.dart';
 import 'package:data_fetch_app/components/my_drawer_title.dart';
+import 'package:data_fetch_app/pages/home_screen.dart';
+
 import 'package:data_fetch_app/pages/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +11,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
       body: Column(
         children: [
           MyDrawer(),
@@ -20,6 +19,8 @@ class HomePage extends StatelessWidget {
             icon: Icons.home,
             onTap: () {
               Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
           ),
           MyDrawerTitle(
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
             text: "LOGOUT",
             icon: Icons.logout,
             onTap: () {},
-          )
+          ),
         ],
       ),
     );
